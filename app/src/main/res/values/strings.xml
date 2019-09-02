@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">crud-interface</string>
+    <string name="console_hint"> </string>
+    <string name="login_button">Log In</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="login_hint">MongoDB URI</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
