@@ -32,9 +32,18 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(getApplicationContext(),ScriptEditor.class);
             startActivity(intent);
         });
-        //TODO:Link Sign Up button
 
 
     }
 
 }
+
+/*
+uri (mongodb+://[username]:[password]@[host name]:[port]/[database name]
+
+query: String
+skip: Integer
+limit: Integer
+order: asc/desc or boolean
+collection Name: people/person
+ */

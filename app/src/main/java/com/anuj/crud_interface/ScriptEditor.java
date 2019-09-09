@@ -4,16 +4,11 @@ import android.app.AlertDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,18 +30,6 @@ public class ScriptEditor extends AppCompatActivity {
         actionBar.setTitle("Console");
 
         EditText editText=findViewById(R.id.editText);
-        /*editText.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-                Toast.makeText(getApplicationContext(),"Here",Toast.LENGTH_SHORT).show();
-                if(keyCode == KeyEvent.KEYCODE_ENTER){
-                    Toast.makeText(getApplicationContext(),"Enter",Toast.LENGTH_LONG).show();
-                }
-                return false;
-            }
-        });
-
-         */
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -87,16 +70,16 @@ public class ScriptEditor extends AppCompatActivity {
     public void onBackPressed()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(ScriptEditor.this);
-        builder.setTitle("Are you sure you want to Log Out?");
-        builder.setMessage("Test");
+        builder.setTitle("ALERT!!");
+        builder.setMessage("The database connection will be terminated if you continue.");
         builder.setCancelable(true);
 
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setPositiveButton("Continue", (dialog, which) -> {
             //TODO:Link Page for Logout
             finish();
         });
 
-        builder.setNegativeButton("No", (dialog, which) -> {
+        builder.setNegativeButton("Cancel", (dialog, which) -> {
             dialog.cancel();
         });
 
