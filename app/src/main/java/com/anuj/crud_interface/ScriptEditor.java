@@ -15,15 +15,27 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class ScriptEditor extends AppCompatActivity {
 
+    FloatingActionButton fab,fab1,fab2,fab3;
+    boolean isFABOpen=false;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState)
+    {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.script_editor);
+
+        fab= findViewById(R.id.fab);
+        fab1= findViewById(R.id.fab1);
+        fab2= findViewById(R.id.fab2);
+        fab3= findViewById(R.id.fab3);
+
         ActionBar actionBar=getSupportActionBar();
         assert actionBar != null;
         actionBar.setBackgroundDrawable(new ColorDrawable(0xff242431));
@@ -49,6 +61,16 @@ public class ScriptEditor extends AppCompatActivity {
 
             }
         });
+
+        fab.setOnClickListener(view -> {
+            if(!isFABOpen){
+                showFABMenu();
+            }
+            else{
+                closeFABMenu();
+            }
+        });
+
     }
 
     @Override
@@ -89,4 +111,17 @@ public class ScriptEditor extends AppCompatActivity {
 
     }
 
+    private void showFABMenu(){
+        isFABOpen=true;
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
+        fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
+    }
+
+    private void closeFABMenu(){
+        isFABOpen=false;
+        fab1.animate().translationY(0);
+        fab2.animate().translationY(0);
+        fab3.animate().translationY(0);
+    }
 }
