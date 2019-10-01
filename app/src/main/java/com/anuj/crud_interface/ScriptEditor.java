@@ -44,23 +44,26 @@ public class ScriptEditor extends AppCompatActivity {
         EditText editText=findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
 
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.length() != 0)
+                if (charSequence.length() != 0) {
                     if (charSequence.charAt(charSequence.length() - 1) == '\n') {
                         Toast.makeText(getApplicationContext(), "HI", Toast.LENGTH_SHORT).show();
                         //TODO:Send data to backend
                     }
+                }
             }
             @Override
             public void afterTextChanged(Editable editable) {
 
             }
         });
+
 
         fab.setOnClickListener(view -> {
             if(!isFABOpen){
